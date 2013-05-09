@@ -160,3 +160,60 @@ add_action( 'wp_enqueue_scripts', 'wpgroundworkcss_scripts' );
  * Implement the Custom Header feature
  */
 //require( get_template_directory() . '/inc/custom-header.php' );
+
+/**
+ * Custom Navigation Menu
+ */
+add_filter('nav_menu_css_class' , 'primary_nav_class' , 10 , 2);
+function primary_nav_class($classes, $item){
+
+	// Get menu object
+	$my_menu = wp_get_nav_menu_object( 'main-menu' );
+
+	switch ($my_menu->count) {
+		case 0:
+			break;
+		case 1:
+			$fractional_count = ' whole';
+			break;
+		case 2:
+			$fractional_count = ' half';
+			break;
+		case 3:
+			$fractional_count = ' third';
+			break;
+		case 4:
+			$fractional_count = ' fourth';
+			break;
+		case 5:
+			$fractional_count = ' fifth';
+			break;
+		case 6:
+			$fractional_count = ' sixth';
+			break;
+		case 7:
+			$fractional_count = ' seventh';
+			break;
+		case 8:
+			$fractional_count = ' eighth';
+			break;
+		case 9:
+			$fractional_count = ' ninth';
+			break;
+		case 10:
+			$fractional_count = ' tenth';
+			break;
+		case 11:
+			$fractional_count = ' eleventh';
+			break;
+		case 12:
+			$fractional_count = ' twelfth';
+			break;
+		default:
+			$fractional_count = ' twelfth';
+	}
+
+	$classes[] = 'one ' . $fractional_count;
+
+    return $classes;
+}

@@ -34,28 +34,34 @@
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</div>
 
-		<nav id="site-navigation" class="navigation-main" role="navigation">
-			<h1 class="menu-toggle"><?php _e( 'Menu', 'wpgroundworkcss' ); ?></h1>
+		<div id="site-navigation" class="navigation-main" role="navigation">
 			<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'wpgroundworkcss' ); ?>"><?php _e( 'Skip to content', 'wpgroundworkcss' ); ?></a></div>
+			<?php wp_nav_menu( array( 
+				'theme_location' => 'primary',
+				'container' => 'nav',
+				'container_class' => 'small-tablet menu nav',
+				'menu_class' =>'row'
+			) ); ?>
+		</div><!-- #site-navigation -->
 
-			<?php // wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-		</nav><!-- #site-navigation -->
-
-		<nav class="small-tablet menu nav" data-label="Menu">
-            <ul class="row">
-              <li class="one small-tablet fourth"><a href="#nowhere" title="Lorum ipsum dolor sit amet">Lorem</a></li>
-              <li class="menu one small-tablet fourth"><a href="#nowhere" title="Aliquam tincidunt mauris eu risus">Aliquam</a>
-                <ul>
-                  <li><a href="#nowhere" title="Pellentesque fermentum dolor">Pellentesque</a></li>
-                  <li><a href="#nowhere" title="Aliquam tincidunt mauris eu risus">Aliquam</a></li>
-                  <li><a href="#nowhere" title="Lorum ipsum dolor sit amet" class="disabled" tabindex="-1">Lorem</a></li>
-                  <li><a href="#nowhere" title="Morbi in sem quis dui placerat ornare">Morbi</a></li>
-                </ul>
-              </li>
-              <li class="one small-tablet fourth"><a href="#nowhere" title="Praesent dapibus, neque id cursus faucibus" class="disabled" tabindex="-1">Praesent</a></li>
-              <li class="one small-tablet fourth"><a href="#nowhere" title="Morbi in sem quis dui placerat ornare">Morbi</a></li>
-            </ul>
-          </nav>
+		<!-- <div class="navigation-main" role="navigation">
+			<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'wpgroundworkcss' ); ?>"><?php _e( 'Skip to content', 'wpgroundworkcss' ); ?></a></div>
+			<nav class="small-tablet menu nav" data-label="Menu">
+			            <ul class="row">
+			              <li class="one small-tablet fourth"><a href="#nowhere" title="Lorum ipsum dolor sit amet">Lorem</a></li>
+			              <li class="menu one small-tablet fourth"><a href="#nowhere" title="Aliquam tincidunt mauris eu risus">Aliquam</a>
+			                <ul>
+			                  <li><a href="#nowhere" title="Pellentesque fermentum dolor">Pellentesque</a></li>
+			                  <li><a href="#nowhere" title="Aliquam tincidunt mauris eu risus">Aliquam</a></li>
+			                  <li><a href="#nowhere" title="Lorum ipsum dolor sit amet" class="disabled" tabindex="-1">Lorem</a></li>
+			                  <li><a href="#nowhere" title="Morbi in sem quis dui placerat ornare">Morbi</a></li>
+			                </ul>
+			              </li>
+			              <li class="one small-tablet fourth"><a href="#nowhere" title="Praesent dapibus, neque id cursus faucibus" class="disabled" tabindex="-1">Praesent</a></li>
+			              <li class="one small-tablet fourth"><a href="#nowhere" title="Morbi in sem quis dui placerat ornare">Morbi</a></li>
+			            </ul>
+			        </nav>
+			    </div>  -->
 	</header><!-- #masthead -->
 
 	<div id="main" class="site-main">
