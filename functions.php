@@ -136,11 +136,11 @@ function wpgroundworkcss_scripts() {
 	wp_enqueue_style( 'font-awesome-ie7', get_stylesheet_directory_uri() . '/css/font-awesome-ie7.min.css', array(), '3.0.2' );
 	$wp_styles->add_data( 'font-awesome-ie7', 'conditional', 'lte IE 7' );
 
+	wp_enqueue_script( 'WPGroundworkCSS-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+
 	wp_enqueue_script( 'WPGroundworkCSS-all', get_template_directory_uri() . '/js/groundwork.all.js', array(), '1.6', true );
 
-//	wp_enqueue_script( 'WPGroundworkCSS-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'WPGroundworkCSS-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'WPGroundworkCSS-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array( 'jquery' ), '20130115', true );
 
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/libs/modernizr-2.6.2.min.js', array(), '2.6.2', false );
 
@@ -159,61 +159,4 @@ add_action( 'wp_enqueue_scripts', 'wpgroundworkcss_scripts' );
 /**
  * Implement the Custom Header feature
  */
-//require( get_template_directory() . '/inc/custom-header.php' );
-
-/**
- * Custom Navigation Menu
- */
-add_filter('nav_menu_css_class' , 'primary_nav_class' , 10 , 2);
-function primary_nav_class($classes, $item){
-
-	// Get menu object
-	$my_menu = wp_get_nav_menu_object( 'main-menu' );
-
-	switch ($my_menu->count) {
-		case 0:
-			break;
-		case 1:
-			$fractional_count = ' whole';
-			break;
-		case 2:
-			$fractional_count = ' half';
-			break;
-		case 3:
-			$fractional_count = ' third';
-			break;
-		case 4:
-			$fractional_count = ' fourth';
-			break;
-		case 5:
-			$fractional_count = ' fifth';
-			break;
-		case 6:
-			$fractional_count = ' sixth';
-			break;
-		case 7:
-			$fractional_count = ' seventh';
-			break;
-		case 8:
-			$fractional_count = ' eighth';
-			break;
-		case 9:
-			$fractional_count = ' ninth';
-			break;
-		case 10:
-			$fractional_count = ' tenth';
-			break;
-		case 11:
-			$fractional_count = ' eleventh';
-			break;
-		case 12:
-			$fractional_count = ' twelfth';
-			break;
-		default:
-			$fractional_count = ' twelfth';
-	}
-
-	$classes[] = 'one ' . $fractional_count;
-
-    return $classes;
-}
+require( get_template_directory() . '/inc/custom-header.php' );
